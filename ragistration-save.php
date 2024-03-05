@@ -10,6 +10,11 @@ require('config.php'); // database connectin kora holo.
 $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
+$location = 'userconfrim.php?msg=Success';
+$query = "INSERT INTO user (name, email, password, code,status)
+          VALUES ('$name', '$email', '$password', '$verifi_code','pending')";
+$dbOparetion = new dbOparetion();
+$dbOparetion -> insertDB($conn, $query, $location);
 $verifi_code = rand(1000,100000);
   
 
@@ -65,26 +70,13 @@ $verifi_code = rand(1000,100000);
 
 // mail end
 
-
-if($conn==true){
-    // database insert query.
-    $query = "INSERT INTO user (name, email, password, code,status)
-    VALUES ('$name', '$email', '$password', '$verifi_code','pending')";
-
-  $sql = mysqli_query($conn,$query); // query insert data
-
-  if($sql){
-    header('location: userconfrim.php?msg=Success');
-  }
-  else{
-    echo 'Sorry';
-  }
+if(isset($_POST['remember'])){
+  setcookie('name', $name, time() + 3600);
+  setcookie('email', $email, time() + 3600);
 }
 else{
-    echo "connection falid"; 
+  setcookie('remember', $remember, time() - 3600);
 }
-
-
 
 
 

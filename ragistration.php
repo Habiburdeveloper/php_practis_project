@@ -72,11 +72,11 @@
                       <div class="row">
 
                         <div class="form-group col-md-12 mb-4">
-                          <input type="text" name="name" class="form-control input-lg" id="name" aria-describedby="nameHelp" placeholder="Name">
+                          <input type="text" name="name" class="form-control input-lg" id="name" aria-describedby="nameHelp" placeholder="Name" value="<?php if(isset($_COOKIE['name'])){ echo $_COOKIE['name']; }?>">
                         </div>
 
                         <div class="form-group col-md-12 mb-4">
-                          <input type="email" name="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="email">
+                          <input type="email" name="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="email" value="<?php if(isset($_COOKIE['email'])){ echo $_COOKIE['email']; }?>">
                         </div>
                         
                         <div class="form-group col-md-12 ">
@@ -87,8 +87,8 @@
                           <div class="d-flex justify-content-between mb-3">
 
                             <div class="custom-control custom-checkbox mr-3 mb-3">
-                              <input type="checkbox" class="custom-control-input" id="customCheck2">
-                              <label class="custom-control-label" for="customCheck2">I Agree the terms and conditions.</label>
+                              <input type="checkbox" class="custom-control-input" id="customCheck2" name="remember" <?php if(isset($_COOKIE['remember'])){ echo $_COOKIE['remember']; }?>>
+                              <label class="custom-control-label" for="customCheck2">Remember Me.</label>
                             </div>
 
                           </div>

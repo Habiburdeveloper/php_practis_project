@@ -45,7 +45,7 @@ require('footer.php');
         <div class="row">
                 <div class="col-xl-12 col-sm-8">
     
-                    <form action="product-save.php" method="post">
+                    <form action="product-save.php" method="post" enctype="multipart/form-data">
                         <select name="categorie_name" id="">
                             <?php
                                 require('config.php');
@@ -54,7 +54,10 @@ require('footer.php');
                                 while($object_assoc = mysqli_fetch_assoc($sql_cat)){
                             
                             ?>
-                            <option value="<?php echo $object_assoc['id'];?>"><?php echo $object_assoc['categorie_name'];?></option>
+                            <option value="<?php echo $object_assoc['id'];?>">
+                                <?php echo  $object_assoc['categorie_name'];?>
+                            </option>
+                            
                             <?php
                                 }
                             ?>
@@ -71,6 +74,8 @@ require('footer.php');
                         <input type="text" name="buy_price" id="">
                         <label for="description">Description</label>
                         <textarea name="description" id="myTextarea" cols="30" rows="10"></textarea>
+                        <label for="product_image">Product Image</label>
+                        <input type="file" name="product_image" id="product_image">
                          </br>
                         <input type="submit" value="Save" id="submit">
                     </form>
@@ -85,6 +90,7 @@ require('footer.php');
                     <th scope="col">buy_price</th>
                     <th scope="col">sell_price</th>
                     <th scope="col">description</th>
+                    <th scope="col">product_iamge</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -93,47 +99,61 @@ require('footer.php');
                     $query_p = "SELECT * FROM `product`";
                     $sql_product = mysqli_query($conn,$query_p);
                     $serial_n=1;
-                    while($object_asso = mysqli_fetch_assoc($sql_product)){
+                    while($object_assoc = mysqli_fetch_assoc($sql_product)){
                 
                 
                 ?>
                 <tr>
-                    <th scope="$object_asso">
+                    <th scope="$object_assoc">
                     <?php 
                         echo $serial_n++;
                     ?>
                     </th>
                     <td>
                         <?php 
-                            echo $object_asso['cat_id'];
+                            echo $object_assoc['cat_id'];
                         ?>
                     </td>
                     <td>
                         <?php 
-                            echo $object_asso['product_name'];
+                            echo $object_assoc['product_name'];
                         ?>
                     </td>
                     <td>
                         <?php 
-                            echo $object_asso['buy_price'];
+                            echo $object_assoc['buy_price'];
                         ?>
                     </td>
                     <td>
                         <?php 
-                            echo $object_asso['sell_price'];
+                            echo $object_assoc['sell_price'];
                         ?>
                     </td>
-                    <td>
+                    <td style="width:100px">
                         <?php 
-                            echo $object_asso['description'];
+                            echo $object_assoc['description'];
                         ?>
                     </td>
+
                     <td>
-                    <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <img src="<?php 
+                                    echo $object_assoc['product_iamge'];
+                              ?> "
+                    alt="img"  style="width:30px">
+                        
+                    </td>
+                    
+
+                    <td>
+                    <a href="edit-product.php?id=<?php echo $object_assoc['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+
+                    <a href="delate-product.php?id=<?php echo $object_assoc['id']; ?>" onclick="return confirm('Delete Confirm')"><i class="fa-solid fa-trash"></i></a>
                     </td>
                     
                 </tr>
+               
                 <?php
+                 
                     }
                 ?>
             </tbody>

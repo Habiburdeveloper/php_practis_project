@@ -13,3 +13,10 @@
 .row form input{
     color: red;
 }
+.cart{
+    display: hidden;
+}
+.mx-auto{
+    text-align: center;
+    color: red;
+}

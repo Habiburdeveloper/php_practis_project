@@ -30,14 +30,14 @@
                 <div class="col-xl-12 col-sm-8">
     
                     <form action="categorie-save.php" method="post" enctype="multipart/form-data">
-                         <label for="categoriename">categorie name</label>
-                        <input type="text" name="categoriename" id="">
-                        <label for="categoriecode">categorie code</label>
-                        <input type="text" name="categoriecode" id="">
-                        <label for="categorieimage">categorie image</label>
-                        <input type="file" name="photo" id="">
+                         <label for="cat_name">categorie name</label>
+                            <input type="text" name="cat_name" id="cat_name">
+                        <label for="cat_code">categorie code</label>
+                            <input type="text" name="cat_code" id="cat_code">
+                        <label for="cat_image">categorie image</label>
+                            <input type="file" name="cat_image" id="cat_image">
                          </br>
-                        <input type="submit" value="Save" id="submit">
+                            <input type="submit" value="Save" id="submit">
                     </form>
                 </div>
                 </div>
@@ -54,7 +54,73 @@
   require('header.php');
   require('footer.php');
 
-  
 ?>
+
+<!-- Botstrap Table -->
+
+        <table class="table table-dark">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">categorie_name</th>
+            <th scope="col">categorie_code</th>
+            <th scope="col">categorie_image</th>
+            <th scope="col">Action</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            <?php
+            require('config.php');
+                $query = "SELECT * FROM categorielist";
+                $sql = mysqli_query($conn, $query);
+                $serial_number = 1;
+                while($object_assoc = mysqli_fetch_assoc($sql)){
+
+            ?>
+            <tr>
+            <th scope="$object_assoc">
+                <?php
+                    echo $serial_number++;
+                
+                ?>
+            </th>
+
+            <td>
+                <?php
+                    echo $object_assoc['categorie_name'];
+                    
+                 ?>
+            </td>
+
+            <td>
+            <?php
+                 echo $object_assoc['categorie_code'];
+                    
+             ?>
+            </td>
+
+            <td>
+                <img src="<?php echo $object_assoc['categorie_image'];?>" alt="img" style="width: 50px;">
+           
+            </td>
+
+            <td>
+                <a href="categorie_edit.php?id=<?php echo $object_assoc['id'];?>">Edit</a> ||
+                <a href="cat-delete.php?id=<?php echo $object_assoc['id'];?>">Delete</a>
+            </td>
+            </tr>
+                    <?php
+                    
+                }
+                    ?>
+        </tbody>
+
+
+        </table>
+
+
+
 </body>
 </html>

@@ -1,0 +1,42 @@
+{
+    "students":[
+        {
+            "name": "Habibur Rahamn",
+            "middleName": null,
+            "age": 25,
+            "cgpa": 3.44,
+            "isRegistred": true,
+            "language": [ "Bengali","English", "Hindi" ],
+            "friends":[
+                {
+                    "name": "Aner",
+                    "age": 26
+                },
+                {
+                    "name": "Ruhul",
+                    "age": 28
+                }
+            ]
+        },
+
+        {
+            "name": "Hamim Rahamn",
+            "middleName": null,
+            "age": 20,
+            "cgpa": 3.80,
+            "isRegistred": true,
+            "language": [ "Bengali","English", "Hindi" ],
+            "friends":[
+                {
+                    "name": "Aner",
+                    "age": 26
+                },
+                {
+                    "name": "Ruhul",
+                    "age": 28
+                }
+            ]
+        }
+
+    ]
+}

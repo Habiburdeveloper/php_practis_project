@@ -20,6 +20,7 @@ if( $conn == true ){
         // echo $object_assoc['password'];
         // exit();
         header('location:dashbord.php?msg=Success');
+        
         if( $object_assoc['email'] == $username && $object_assoc['password'] == $passwrod ){
 
             $_SESSION['email']="$username";

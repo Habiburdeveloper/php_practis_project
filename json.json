@@ -1,0 +1,17 @@
+
+{
+    "friends":[
+        {
+            "name": "Md Habibur Rahman",
+            "age": 25,
+            "village": "Moniary"
+        },
+        {
+            "name": "Md Hamim Rahman",
+            "age": 5,
+            "village": "Moniary"
+        }
+
+    ]
+        
+}

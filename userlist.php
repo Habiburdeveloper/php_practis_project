@@ -111,33 +111,41 @@
                                         echo $serial_no++;
                                     ?>
                                 </th>
+
                                 <td>
                                     <?php 
                                         echo $object_assoc['first_name'];
                                     ?>
                                 </td>
+
                                 <td>
                                     <?php 
                                         echo $object_assoc['last_name'];
                                     ?>
                                 </td>
+
                                 <td>
                                     <?php 
                                         echo $object_assoc['userphone'];
                                     ?>
                                 </td>
+
                                 <td>
                                     <?php 
                                         echo $object_assoc['user_disegnetion'];
                                     ?>
                                 </td>
+
                                 <td>
                                     <?php 
                                         echo $object_assoc['_description'];
                                     ?>
                                 </td>
+
                                 <td>
-                                <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="update.php?id=<?php echo $object_assoc['id']; ?>" style="padding-right: 10px;"><i class="fa-solid fa-pen-to-square"></i></a>
+
+                                <a href="delate.php?id=<?php echo $object_assoc['id']; ?>" onclick="return confirm('Delete Confirm')"><i class="fa-solid fa-trash"></i></a>
                                 </td>
 
                             </tr>

@@ -67,26 +67,63 @@
 //     echo $single_name."</br>";
 // }
 
-$count = 1;
-do{
-    echo $count.'</br>';
-$count++;
-} while ( $count <= 10 );
+// do while loop ...
+// $count = 1;
+// do{
+//    if ( $count != 6 ) {
+//     echo $count.'</br>';
+//    }
+   
+    
+// $count++;
+// } while ( $count <= 10 );
 
+for ( $count =1; $count <= 4; $count++ ) {
+    echo "php".'<br>';
+    echo "css".'<br>';
+    if ( $count == 3 ) {
+        continue;
+    }
+    echo "oop".'<br><br>';
 
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php
+     for ( $i=0; $i<=4; $i++ ) {  
+          if ( $i ==3 ) {
+            goto end;
+          }
+    ?>
+    
+    <ul>
+        <li>hello
+           
+            <ul>
+           
+                <li>list1</li>
+                
+            </ul> 
+            
+        </li>
+    
+    </ul>
+    <?php
+    }
+    end:
+    echo 'ok';
+    ?>
+
+</body>
+</html>
