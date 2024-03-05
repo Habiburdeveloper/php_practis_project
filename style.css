@@ -1,0 +1,15 @@
+.row{
+    background: #c39af5;
+    padding: 20px 10px 20px 10px;
+    border-radius: 4px;
+    
+}
+.row form label{
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #f00a66;
+}
+.row form input{
+    color: red;
+}
